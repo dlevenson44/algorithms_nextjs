@@ -4,6 +4,8 @@ This is a boilerplate NextJS project that has prettier and linting config setup 
 
 This project is intended to act as a base for all future projects.  After all, who wants to setup linters, prettier, tests, and MUI over and over?
 
+Theme is defined in `~/styles/theme.ts`, but no definitions have been provided.
+
 Please run `yarn install` to install needed dependencies.  below are a list of support commands:
 
 ```bash
