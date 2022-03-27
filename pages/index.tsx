@@ -16,8 +16,8 @@ const Home: NextPage = () => {
       <Header pageTitle="Algorithms" />
       <Stack>
         {map(linkConfig, ({ title, url }: Link) => (
-          <NextLink href={url} passHref>
-            <MuiLink>{title}</MuiLink>
+          <NextLink key={url} href={url} passHref>
+            <MuiLink data-testId={title}>{title}</MuiLink>
           </NextLink>
         ))}
       </Stack>
