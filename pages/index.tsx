@@ -6,13 +6,13 @@ import map from 'lodash/map'
 import type { NextPage } from 'next'
 import NextLink from 'next/link'
 
-import { Header } from '../components/shared'
+import { Header, Wrapper } from '../components/shared'
 import { linkConfig } from '~/utils/configuration/menu-items'
 import { Link } from '~/utils/types/menu-items'
 
 const Home: NextPage = () => {
   return (
-    <div data-testid="home_wrapper">
+    <Wrapper page="home">
       <Header pageTitle="Algorithms" />
       <Stack>
         {map(linkConfig, ({ title, url }: Link) => (
@@ -21,7 +21,7 @@ const Home: NextPage = () => {
           </NextLink>
         ))}
       </Stack>
-    </div>
+    </Wrapper>
   )
 }
 
