@@ -6,7 +6,7 @@ import map from 'lodash/map'
 import type { NextPage } from 'next'
 import NextLink from 'next/link'
 
-import { Header, Wrapper } from '../components/shared'
+import { Header, Wrapper } from '~/components/shared'
 import { linkConfig } from '~/utils/configuration/menu-items'
 import { Link } from '~/utils/types/menu-items'
 
@@ -17,7 +17,7 @@ const Home: NextPage = () => {
       <Stack>
         {map(linkConfig, ({ title, url }: Link) => (
           <NextLink key={url} href={url} passHref>
-            <MuiLink data-testId={title}>{title}</MuiLink>
+            <MuiLink data-testid={title}>{title}</MuiLink>
           </NextLink>
         ))}
       </Stack>
