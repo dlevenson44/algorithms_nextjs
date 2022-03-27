@@ -1,33 +1,26 @@
+import React from 'react'
+
+import MuiLink from '@mui/material/Link'
+import Stack from '@mui/material/Stack'
+import map from 'lodash/map'
 import type { NextPage } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
+import NextLink from 'next/link'
 
 import { Header } from '../components/shared'
-import styles from '../styles/Home.module.css'
+import { linkConfig } from '~/utils/configuration/menu-items'
+import { Link } from '~/utils/types/menu-items'
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container} data-testid="home_wrapper">
-      <Header pageTitle="root" />
-
-      <main className={styles.main}>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+    <div data-testid="home_wrapper">
+      <Header pageTitle="Algorithms" />
+      <Stack>
+        {map(linkConfig, ({ title, url }: Link) => (
+          <NextLink href={url} passHref>
+            <MuiLink>{title}</MuiLink>
+          </NextLink>
+        ))}
+      </Stack>
     </div>
   )
 }

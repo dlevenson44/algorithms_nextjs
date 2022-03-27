@@ -1,6 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react'
-import jest from 'jest'
-// import { JSDOM } from 'jsdom'
+import { render } from '@testing-library/react'
 
 import { Header } from '../../../components/shared'
 
