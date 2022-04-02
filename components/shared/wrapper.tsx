@@ -5,9 +5,15 @@ import Box, { BoxProps } from '@mui/material/Box'
 interface WrapperProps extends BoxProps {
   children: React.ReactNode | React.ReactNode[]
   page: string
+  sxOverride?: { [key: string]: string }
 }
 
-const Wrapper: React.FC<WrapperProps> = ({ children, page, ...rest }) => (
+const Wrapper: React.FC<WrapperProps> = ({
+  children,
+  page,
+  sxOverride,
+  ...rest
+}) => (
   <Box
     data-testid={`${page}_wrapper`}
     sx={{
@@ -15,6 +21,7 @@ const Wrapper: React.FC<WrapperProps> = ({ children, page, ...rest }) => (
       justifyContent: 'center',
       alignItems: 'center',
       height: '100vh',
+      ...sxOverride,
     }}
     {...rest}
   >
