@@ -6,6 +6,7 @@ import map from 'lodash/map'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
+import { tabStyles } from '~/styles/components/shared/styles'
 import { linkConfig } from '~/utils/configuration/menu-items'
 import { Link } from '~/utils/types/menu-items'
 
@@ -15,6 +16,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ pageTitle, renderTabs }) => {
+  const classes = tabStyles()
   const router = useRouter()
   const [selectedTab, setSelectedTab] = React.useState<string>('')
 
@@ -31,9 +33,21 @@ const Header: React.FC<HeaderProps> = ({ pageTitle, renderTabs }) => {
       </Head>
       <div data-testid="header_wrapper">
         {renderTabs && Boolean(selectedTab) && (
-          <Tabs value={selectedTab}>
+          <Tabs
+            className={classes.tabs}
+            value={selectedTab}
+            variant="scrollable"
+          >
             {map(linkConfig, ({ title, url }: Link) => {
-              return <Tab key={url} label={title} value={url} />
+              return (
+                <Tab
+                  className={classes.tab}
+                  key={url}
+                  label={title}
+                  value={url}
+                  wrapped
+                />
+              )
             })}
           </Tabs>
         )}
